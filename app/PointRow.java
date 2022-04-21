@@ -6,4 +6,8 @@ import java.util.ArrayList;
 public class PointRow {
     ArrayList<Point> guess;
     ArrayList<Point> hints;
+
+    public ArrayList<Point> getGuess() {
+        return guess;
+    }
 }
