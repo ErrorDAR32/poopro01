@@ -1,3 +1,5 @@
+package app;
+
 public class Point {
 
     private int id;
