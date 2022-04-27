@@ -10,6 +10,11 @@ public class Interface {
     private JPanel HistoryPanel;
     private JPanel ControlPanel;
     private JPanel HintsPanel;
+    private JButton Send_button;
+    private ColorButton control_button1;
+    private ColorButton control_button2;
+    private ColorButton control_button3;
+    private ColorButton control_button4;
 
     public Interface(){
         
@@ -50,30 +55,16 @@ public class Interface {
         }
 
 
-        GridBagLayout la = new GridBagLayout();
+        control_button1 = new ColorButton();
+        control_button1.initialize();
 
-        ControlPanel = new JPanel();
-        ControlPanel.setLayout(la);
+        control_button2 = new ColorButton();
+        control_button2.initialize();
 
-        for (int i=0; i<4; i++) {
-            GridBagConstraints c = new GridBagConstraints();
-            c.gridwidth = 1;
-            c.gridheight = 1;
+        control_button3 = new ColorButton();
+        control_button3.initialize();
 
-            ColorButton b = new ColorButton();
-            la.addLayoutComponent(b, c);
-            ControlPanel.add(b);
-        }
-
-        JButton send = new JButton();
-        send.setText("enviar");
-        GridBagConstraints c = new GridBagConstraints();
-
-        c.gridwidth = 4;
-        c.gridheight = 1;
-        la.setConstraints(send, c);
-        ControlPanel.add(send);
-
-
+        control_button4 = new ColorButton();
+        control_button4.initialize();
     }
 }
