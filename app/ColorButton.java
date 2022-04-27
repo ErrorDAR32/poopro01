@@ -5,7 +5,10 @@ import java.awt.*;
 
 public class ColorButton extends JButton {
     public void initialize() {
+        this.setText("");
         this.setOpaque(false);
+        this.setContentAreaFilled(false);
+        this.setBorderPainted(false);
         this.setSize(40, 40);
         this.setMinimumSize(new Dimension(40, 40));
     }

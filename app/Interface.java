@@ -20,10 +20,6 @@ public class Interface {
         
     }
 
-    public static void main(String[] args) {
-
-    }
-
     private void createUIComponents() {
         GridLayout l = new GridLayout(10,4);
         l.setVgap(15);
