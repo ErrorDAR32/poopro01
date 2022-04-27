@@ -1,78 +1,79 @@
 package app;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
 public class Interface {
     private JTextField textField1;
-    private JPanel panelMain;
-    private JButton button1_row1;
-    private JButton button2_row1;
-    private JButton button3_row1;
-    private JButton button4_row1;
-    private JButton button1_row2;
-    private JButton button2_row2;
-    private JButton button3_row2;
-    private JButton button4_row2;
-    private JButton button1row3;
-    private JButton button2_row3;
-    private JButton button3_row3;
-    private JButton button4_row3;
-    private JButton button1_row4;
-    private JButton button2_row4;
-    private JButton button3_row4;
-    private JButton button4_row4;
-    private JButton button1_row5;
-    private JButton button2_row5;
-    private JButton button3_row5;
-    private JButton button4_row5;
-    private JButton button1_row6;
-    private JButton button2_row6;
-    private JButton button3_row6;
-    private JButton button4_row6;
-    private JButton button1_row7;
-    private JButton button2_row7;
-    private JButton button3_row7;
-    private JButton button4_row7;
-    private JButton button1_row8;
-    private JButton button2_row8;
-    private JButton button3_row8;
-    private JButton button4_row8;
-    private JButton button1_row9;
-    private JButton button2_row9;
-    private JButton button3_row9;
-    private JButton button4_row9;
-    private JButton button1_row10;
-    private JButton button2_row10;
-    private JButton button3_row10;
-    private JButton button4_row10;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JPanel panelTurns;
-    private JButton enviarButton;
+    public JPanel panelMain;
+    private JButton button1_row3;
+    private JPanel HistoryPanel;
+    private JPanel ControlPanel;
+    private JPanel HintsPanel;
 
     public Interface(){
-
-        button1_row1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, textField1.getText());
-            }
-        });
+        
     }
 
     public static void main(String[] args) {
-        JFrame I = new JFrame("Interface");
-        I.setContentPane(new Interface().panelMain);
-        I.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        I.pack();
-        I.setVisible(true);
+
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+        GridLayout l = new GridLayout(10,4);
+        l.setVgap(15);
+
+        HistoryPanel = new JPanel(l);
+        HistoryPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+
+        for(int i=0; i<10; i++) {
+            for (int j=0; j<4; j++) {
+                HistoryLabel b = new HistoryLabel();
+                b.initialize();
+                b.setEnabled(false);
+
+                HistoryPanel.add(b);
+            }
+        }
+
+        HintsPanel = new JPanel(new GridLayout(20,2));
+
+        for(int i=0; i<10; i++) {
+            for (int j=0; j<4; j++) {
+                HintLabel b = new HintLabel();
+                b.initialize();
+                b.setEnabled(true);
+
+                HintsPanel.add(b);
+            }
+        }
+
+
+        GridBagLayout la = new GridBagLayout();
+
+        ControlPanel = new JPanel();
+        ControlPanel.setLayout(la);
+
+        for (int i=0; i<4; i++) {
+            GridBagConstraints c = new GridBagConstraints();
+            c.gridwidth = 1;
+            c.gridheight = 1;
+
+            ColorButton b = new ColorButton();
+            la.addLayoutComponent(b, c);
+            ControlPanel.add(b);
+        }
+
+        JButton send = new JButton();
+        send.setText("enviar");
+        GridBagConstraints c = new GridBagConstraints();
+
+        c.gridwidth = 4;
+        c.gridheight = 1;
+        la.setConstraints(send, c);
+        ControlPanel.add(send);
+
+
     }
 }
