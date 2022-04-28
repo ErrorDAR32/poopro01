@@ -39,6 +39,11 @@ public class mastermind {
         }
     }
 
+    /**
+     * Constructs a game state with random values
+     * @param
+     * @return void
+     */
     public mastermind() {
         this.CurrentRow = 0;
         this.HistoryPoints = new ArrayList<>();
