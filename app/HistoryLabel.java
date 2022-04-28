@@ -29,12 +29,17 @@ public class HistoryLabel extends JLabel {
         this.color = 6;
     }
 
+    /**
+     * Method for get the number of color of the label
+     * @param
+     * @return int
+     */
     public int getColor() {
         return color;
     }
 
     /**
-     * Set the color to the label.
+     * Method for set the color to the label.
      * @param g(Graphics necesaries to the label)
      * @return void
      */
@@ -47,10 +52,20 @@ public class HistoryLabel extends JLabel {
         //g.fillRect(0,0,40,40);
     }
 
+    /**
+     * Method for set a new number of the color to the label
+     * @param color(Number of the color)
+     * @return void
+     */
     public void setColorNumber(int color) {
         this.color = color;
     }
 
+    /**
+     * Method for get the color of the label.
+     * @param
+     * @return Color
+     */
     public Color getColor(int c) {
         switch (c) {
             case (0) -> {
