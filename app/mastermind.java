@@ -39,6 +39,23 @@ public class mastermind {
         }
     }
 
+    public mastermind() {
+        this.CurrentRow = 0;
+        this.HistoryPoints = new ArrayList<>();
+
+        Random r = new Random();
+
+        this.Solution = new ArrayList<>();
+        Solution.add(r.nextInt(5));
+        Solution.add(r.nextInt(5));
+        Solution.add(r.nextInt(5));
+        Solution.add(r.nextInt(5));
+
+        for (int i=0; i<40; i++) {
+            HistoryPoints.add(6);
+        }
+    }
+
     public ArrayList<Integer> getHistoryPoints() {
         return HistoryPoints;
     }
@@ -103,5 +120,21 @@ public class mastermind {
 
     public void setSolution(ArrayList<Integer> solution) {
         Solution = solution;
+    }
+
+    public void reset() {
+         for (int i=0; i<40;i++) {
+             HistoryPoints.set(i, 6);
+             CurrentRow = 0;
+
+             Random r = new Random();
+
+             Solution.clear();
+             Solution.add(r.nextInt(5));
+             Solution.add(r.nextInt(5));
+             Solution.add(r.nextInt(5));
+             Solution.add(r.nextInt(5));
+
+         }
     }
 }

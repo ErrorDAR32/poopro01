@@ -81,25 +81,10 @@ public class Interface {
                 guess.add(control_button4.getColorNumber());
 
                 //System.out.println(guess.toString());
-                if (gamestate.CurrentRow == 40) {
-                    //game ended, prompt
 
-                    return;
-                }
 
                 gamestate.addGuess(guess);
                 ArrayList<Integer> hints = gamestate.CheckColors();
-                System.out.println(hints);
-
-                Boolean allwhite = true;
-                for(int hint : hints) {
-                    if(hint != 2) {
-                        allwhite = false;
-                        break;
-                    }
-
-                    // prompt winning condition
-                }
 
                 //update historycolorpoints
                 for(int i=0;i<4;i++) {
@@ -113,6 +98,43 @@ public class Interface {
                     HintLabel b = HintLabels.get(gamestate.getCurrentRow()+i-4);
                     b.setColorNumber(hints.get(i));
                     b.updateUI();
+                }
+
+
+                boolean allwhite = true;
+                for(int hint : hints) {
+                    if(hint != 2) {
+                        allwhite = false;
+                        break;
+                    }
+
+                    // prompt winning condition
+
+                }
+
+
+                if (gamestate.CurrentRow == 40) {
+                    //game ended, prompt
+                    EndOFGame dialog = new EndOFGame();
+                    dialog.pack();
+                    dialog.setVisible(true);
+                    Integer result = dialog.getresult();
+                    dialog.dispose();
+
+                    if (result == 1) {
+                        gamestate.reset();
+
+                        for(int i=0; i<40; i++) {
+                            HintLabels.get(i).setColorNumber(6);
+                            HintLabels.get(i).updateUI();
+                            HistoryLabels.get(i).setColorNumber(6);
+                            HistoryLabels.get(i).updateUI();
+                        }
+                    }
+
+                    if (result == 0) {
+                        System.exit(0);
+                    }
                 }
             }
         });
