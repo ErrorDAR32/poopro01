@@ -13,24 +13,24 @@ public class HistoryLabel extends JLabel {
         this.color = 6;
     }
 
-    public int getColorNumber() {
-        return color;
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(this.getColorNumber(color));
+        g.setColor(this.getColor(color));
         g.fillOval(0, 0, 40, 40);
         //g.setColor(Color.BLUE);
         //g.fillRect(0,0,40,40);
+    }
+
+    public int getColor() {
+        return color;
     }
 
     public void setColorNumber(int color) {
         this.color = color;
     }
 
-    public Color getColorNumber(int c) {
+    public Color getColor(int c) {
         switch (c) {
             case (0) -> {
                  return Color.GREEN;
