@@ -127,7 +127,9 @@ public class Interface {
                         result = dialog.getresult();
                         dialog.dispose();
                     }
-
+                    if (result == 0) {
+                        System.exit(0);
+                    }
                     if (result == 1) {
                         gamestate.reset();
 
