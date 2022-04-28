@@ -37,4 +37,23 @@ public class HintLabel extends JButton {
         //g.setColor(Color.BLUE);
         //g.fillRect(0,0,20,20);
     }
+
+    public void setColorNumber(int color) {
+        this.color = color;
+    }
+
+    public Color getColor(int c) {
+        switch (c) {
+            case (0) -> {
+                return Color.GRAY;
+            }
+            case (1) -> {
+                return Color.RED;
+            }
+            case (2) -> {
+                return Color.WHITE;
+            }
+        }
+        return Color.lightGray;
+    }
 }
