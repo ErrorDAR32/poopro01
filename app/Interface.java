@@ -109,27 +109,26 @@ public class Interface {
                     b.updateUI();
                 }
 
-                System.out.println(hints);
 
-                boolean alltwo = true;
+                int count = 0;
                 for(int hint : hints) {
-                    if(hint != 2) {
-                        alltwo = false;
-                    } else continue;
-
-                    if (!alltwo) {
-                        break;
+                    if(hint == 2) {
+                        count++;
                     }
 
-                    WinGame dialog = new WinGame();
-                    dialog.pack();
-                    dialog.setVisible(true);
-                    Integer result = dialog.getresult();
-                    dialog.dispose();
+                    Integer result = 0;
 
-                    if (result == 0) {
-                        System.exit(0);
-                    } else {
+                    System.out.println(count);
+
+                    if (count == 4) {
+                        WinGame dialog = new WinGame();
+                        dialog.pack();
+                        dialog.setVisible(true);
+                        result = dialog.getresult();
+                        dialog.dispose();
+                    }
+
+                    if (result == 1) {
                         gamestate.reset();
 
                         for(int i=0; i<40; i++) {

@@ -37,6 +37,9 @@ public class mastermind {
         for (int i=0; i<40; i++) {
             HistoryPoints.add(6);
         }
+
+        System.out.println(Solution);
+
     }
 
     /**
@@ -199,5 +202,6 @@ public class mastermind {
         for (int i=0; i<40; i++) {
             HistoryPoints.add(6);
         }
+        System.out.println(Solution);
     }
 }
