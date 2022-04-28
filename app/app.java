@@ -31,13 +31,13 @@ public class app {
         I.setVisible(true);
 
 
-        ArrayList<Integer> solution = new ArrayList<>();
-        solution.add(0);
-        solution.add(1);
-        solution.add(2);
-        solution.add(3);
+        //ArrayList<Integer> solution = new ArrayList<>();
+        //solution.add(0);
+        //solution.add(1);
+        //solution.add(2);
+        //solution.add(3);
 
-        mastermind m = new mastermind(solution);
+        mastermind m = new mastermind();
         i.setGamestate(m);
     }
 }

@@ -5,21 +5,24 @@ import java.awt.event.*;
 
 public class WinGame extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
+    private JButton YesButton;
+    private JButton NoButton;
+    private JTextArea felicidadesGanaseDeseasJugarTextArea;
+    private int res;
 
     public WinGame() {
+        res = 0;
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(YesButton);
 
-        buttonOK.addActionListener(new ActionListener() {
+        YesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        NoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
@@ -42,12 +45,16 @@ public class WinGame extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
+        res = 1;
         dispose();
     }
 
     private void onCancel() {
-        // add your code here if necessary
+        res = 0;
         dispose();
+    }
+
+    public Integer getresult() {
+        return res;
     }
 }

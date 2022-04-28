@@ -124,7 +124,21 @@ public class Interface {
                     WinGame dialog = new WinGame();
                     dialog.pack();
                     dialog.setVisible(true);
-                    System.exit(0);
+                    Integer result = dialog.getresult();
+                    dialog.dispose();
+
+                    if (result == 0) {
+                        System.exit(0);
+                    } else {
+                        gamestate.reset();
+
+                        for(int i=0; i<40; i++) {
+                            HintLabels.get(i).setColorNumber(6);
+                            HintLabels.get(i).updateUI();
+                            HistoryLabels.get(i).setColorNumber(6);
+                            HistoryLabels.get(i).updateUI();
+                        }
+                    }
 
                 }
 
