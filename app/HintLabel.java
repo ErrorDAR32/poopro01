@@ -67,10 +67,10 @@ public class HintLabel extends JButton {
                 return Color.GRAY;
             }
             case (1) -> {
-                return Color.RED;
+                return Color.WHITE;
             }
             case (2) -> {
-                return Color.WHITE;
+                return Color.RED;
             }
         }
         return Color.lightGray;

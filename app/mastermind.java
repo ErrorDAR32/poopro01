@@ -100,8 +100,8 @@ public class mastermind {
      * @return ArrayList<Integer>
      * result posible contains:
      * 0= no hint
-     * 1= red hint (good color)
-     * 2= white hint (good color, good position)
+     * 1= white hint (good color)
+     * 2= red hint (good color, good position)
      */
     public ArrayList<Integer> CheckColors() {
         ArrayList<Integer> result = new ArrayList<>();
@@ -155,5 +155,22 @@ public class mastermind {
      */
     public void setSolution(ArrayList<Integer> solution) {
         Solution = solution;
+    }
+
+
+    public void reset() {
+        this.CurrentRow = 0;
+
+        Random r = new Random();
+
+        this.Solution.clear();
+        Solution.add(r.nextInt(5));
+        Solution.add(r.nextInt(5));
+        Solution.add(r.nextInt(5));
+        Solution.add(r.nextInt(5));
+
+        for (int i=0; i<40; i++) {
+            HistoryPoints.add(6);
+        }
     }
 }
