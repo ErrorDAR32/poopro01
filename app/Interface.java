@@ -1,20 +1,27 @@
+/**
+ * Container Package
+ */
 package app;
 
+/**
+ * Necesary imports
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+/**
+ * This class represents the graphic part of the program, the interface.
+ * @author: Dariem F. Hidalgo, Pablo A. Arguedas.
+ * @version: 27/04/2022
+ */
 public class Interface {
-    public mastermind getGamestate() {
-        return gamestate;
-    }
 
-    public void setGamestate(mastermind gamestate) {
-        this.gamestate = gamestate;
-    }
-
+    /**
+     * Declarations
+     */
     private mastermind gamestate;
     public JPanel panelMain;
     private JPanel HistoryPanel;
@@ -30,6 +37,11 @@ public class Interface {
     ArrayList<ColorButton> Control_Buttons;
     ArrayList<HintLabel> HintLabels;
 
+    /**
+     * Declare the different methods of the buttons of the board.
+     * @param
+     * @return void
+     */
     public Interface(){
         control_button1.addMouseListener(new MouseAdapter() {
             @Override
@@ -140,6 +152,29 @@ public class Interface {
         });
     }
 
+    /**
+     * Method for get the gamestate of the board.
+     * @param
+     * @return mastermind
+     */
+    public mastermind getGamestate() {
+        return gamestate;
+    }
+
+    /**
+     * Method for set the gamestate to the board.
+     * @param
+     * @return mastermind
+     */
+    public void setGamestate(mastermind gamestate) {
+        this.gamestate = gamestate;
+    }
+
+    /**
+     * Method for create all the components necesaries of the board.
+     * @param
+     * @return void
+     */
     private void createUIComponents() {
         GridLayout l = new GridLayout(10,4);
         l.setVgap(15);
@@ -193,4 +228,5 @@ public class Interface {
         Control_Buttons.add(control_button3);
         Control_Buttons.add(control_button4);
     }
+
 }

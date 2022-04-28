@@ -56,18 +56,38 @@ public class mastermind {
         }
     }
 
+    /**
+     * Method for get the list that have the points of the game
+     * @param
+     * @return ArrayList<Integer>
+     */
     public ArrayList<Integer> getHistoryPoints() {
         return HistoryPoints;
     }
 
+    /**
+     * Method for set a new list that have the points choosed by the user
+     * @param historyPoints(A list with the points that choose the user)
+     * @return void
+     */
     public void setHistoryPoints(ArrayList<Integer> historyPoints) {
         HistoryPoints = historyPoints;
     }
 
+    /**
+     * Method for get the current row of the list
+     * @param
+     * @return Integer
+     */
     public Integer getCurrentRow() {
         return CurrentRow;
     }
 
+    /**
+     * Method for set the row that the user is playing
+     * @param currentRow(Number of the current Row)
+     * @return void
+     */
     public void setCurrentRow(Integer currentRow) {
         CurrentRow = currentRow;
     }
@@ -107,6 +127,11 @@ public class mastermind {
         return result;
     }
 
+    /**
+     * Method for add a try to the list of History Points
+     * @param guess(A list with the colors of the try that the user do)
+     * @return void
+     */
     public void addGuess(ArrayList<Integer> guess) {
         for (int i=0; i<4; i++) {
             HistoryPoints.set(CurrentRow+i, guess.get(i));
@@ -114,27 +139,21 @@ public class mastermind {
         CurrentRow += 4;
     }
 
+    /**
+     * Method for get the list that have the solution of the game
+     * @param
+     * @return ArrayList<Integer>
+     */
     public ArrayList<Integer> getSolution() {
         return Solution;
     }
 
+    /**
+     * Method for set a new list that have the solution of the game
+     * @param solution(List with the solution of the game)
+     * @return void
+     */
     public void setSolution(ArrayList<Integer> solution) {
         Solution = solution;
-    }
-
-    public void reset() {
-         for (int i=0; i<40;i++) {
-             HistoryPoints.set(i, 6);
-             CurrentRow = 0;
-
-             Random r = new Random();
-
-             Solution.clear();
-             Solution.add(r.nextInt(5));
-             Solution.add(r.nextInt(5));
-             Solution.add(r.nextInt(5));
-             Solution.add(r.nextInt(5));
-
-         }
     }
 }
