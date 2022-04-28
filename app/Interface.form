@@ -56,7 +56,8 @@
             </constraints>
             <properties>
               <actionCommand value=""/>
-              <text value="Button"/>
+              <label value="Enviar"/>
+              <text value="Enviar"/>
             </properties>
           </component>
           <hspacer id="c550">

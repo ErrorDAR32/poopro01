@@ -2,8 +2,12 @@ package app;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Interface {
+    private mastermind gamestate;
     private JTextField textField1;
     public JPanel panelMain;
     private JButton button1_row3;
@@ -17,7 +21,52 @@ public class Interface {
     private ColorButton control_button4;
 
     public Interface(){
-        
+        control_button1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                control_button1.nextColor();
+                control_button1.updateUI();
+            }
+        });
+
+
+        control_button2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                control_button2.nextColor();
+                control_button2.updateUI();
+            }
+        });
+
+
+        control_button3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                control_button3.nextColor();
+                control_button3.updateUI();
+            }
+        });
+
+
+        control_button4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                control_button4.nextColor();
+                control_button4.updateUI();
+            }
+        });
+        Send_button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                gamestate.CheckColors(list);
+            }
+        });
     }
 
     private void createUIComponents() {
@@ -62,5 +111,12 @@ public class Interface {
 
         control_button4 = new ColorButton();
         control_button4.initialize();
+
+        Control_Buttons = new ArrayList<>();
+
+        Control_Buttons.add(control_button1);
+        Control_Buttons.add(control_button2);
+        Control_Buttons.add(control_button3);
+        Control_Buttons.add(control_button4);
     }
 }

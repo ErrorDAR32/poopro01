@@ -11,5 +11,7 @@ public class app {
         I.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         I.pack();
         I.setVisible(true);
+
+        mastermind m = new mastermind();
     }
 }
