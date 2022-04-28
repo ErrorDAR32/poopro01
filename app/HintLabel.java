@@ -1,9 +1,25 @@
+/**
+ * Container Package
+ */
 package app;
 
+/**
+ * Necesary imports
+ */
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class declare a special label with some necesaty atributes.
+ * @author: Dariem F. Hidalgo, Pablo A. Arguedas.
+ * @version: 27/04/2022
+ */
 public class HintLabel extends JButton {
+    /**
+     * Create the label with the dimensions necesaries.
+     * @param
+     * @return void
+     */
     public void initialize() {
         this.setOpaque(false);
         this.setContentAreaFilled(false);
@@ -12,6 +28,11 @@ public class HintLabel extends JButton {
         this.setMinimumSize(new Dimension(20, 20));
     }
 
+    /**
+     * Set the color to the label.
+     * @param g(Graphics necesaries to the label)
+     * @return void
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -1,8 +1,19 @@
+/**
+ * Container Package
+ */
 package app;
 
+/**
+ * Necesary imports
+ */
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class declare a special label with some necesaty atributes.
+ * @author: Dariem F. Hidalgo, Pablo A. Arguedas.
+ * @version: 27/04/2022
+ */
 public class ColorButton extends JButton {
     private int ColorNumber;
 
