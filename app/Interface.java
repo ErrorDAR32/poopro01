@@ -113,14 +113,15 @@ public class Interface {
                 }
 
 
-                boolean allwhite = true;
                 for(int hint : hints) {
                     if(hint != 2) {
-                        allwhite = false;
                         break;
                     }
 
-                    // prompt winning condition
+                    WinGame dialog = new WinGame();
+                    dialog.pack();
+                    dialog.setVisible(true);
+                    System.exit(0);
 
                 }
 
