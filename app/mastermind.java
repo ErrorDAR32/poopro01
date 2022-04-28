@@ -1,16 +1,34 @@
+/**
+ * Container Package
+ */
 package app;
 
+/**
+ * Necesary imports
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * This class represents the variables and methods necesaries for the program function.
+ * @author: Dariem F. Hidalgo, Pablo A. Arguedas.
+ * @version: 27/04/2022
+ */
 public class mastermind {
+    /**
+     * Declarations
+     */
     Integer CurrentRow;
     ArrayList<Integer> HistoryPoints;
     ArrayList<Integer> Solution;
 
-    /** constructs a game state with default conditions **/
+    /**
+     * Constructs a game state with default conditions
+     * @param solution(List with the solution of the game)
+     * @return void
+     */
     public mastermind(ArrayList<Integer> solution) {
         this.CurrentRow = 0;
         this.HistoryPoints = new ArrayList<>();
@@ -38,11 +56,16 @@ public class mastermind {
     }
 
 
-    /** checks colors on current row
-     * output array of integers encode:
+
+    /**
+     * Checks colors on current row
+     * @param
+     * @return ArrayList<Integer>
+     * result posible contains:
      * 0= no hint
      * 1= red hint (good color)
-     * 2= white hint (good color, good position)*/
+     * 2= white hint (good color, good position)
+     */
     public ArrayList<Integer> CheckColors() {
         ArrayList<Integer> result = new ArrayList<>();
 

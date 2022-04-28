@@ -3,9 +3,19 @@ package app;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class declare a special label with some necesaty atributes.
+ * @author: Dariem F. Hidalgo, Pablo A. Arguedas.
+ * @version: 27/04/2022
+ */
 public class HistoryLabel extends JLabel {
     private int color;
 
+    /**
+     * Create the label with the dimensions
+     * @param
+     * @return void
+     */
     public HistoryLabel() {
         this.setOpaque(false);
         this.setSize(40, 40);
@@ -13,6 +23,15 @@ public class HistoryLabel extends JLabel {
         this.color = 6;
     }
 
+    public int getColorNumber() {
+        return color;
+    }
+
+    /**
+     * Set the color to the label.
+     * @param g(Graphics necesaries to the label)
+     * @return void
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -22,10 +41,6 @@ public class HistoryLabel extends JLabel {
         //g.fillRect(0,0,40,40);
     }
 
-    public int getColor() {
-        return color;
-    }
-
     public void setColorNumber(int color) {
         this.color = color;
     }
@@ -33,7 +48,7 @@ public class HistoryLabel extends JLabel {
     public Color getColor(int c) {
         switch (c) {
             case (0) -> {
-                 return Color.GREEN;
+                return Color.GREEN;
             }
             case (1) -> {
                 return Color.YELLOW;
