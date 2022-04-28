@@ -1,17 +1,28 @@
 
 package app;
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class app {
 
     public static void main(String[] args)
     {
         JFrame I = new JFrame("Interface");
-        I.setContentPane(new Interface().panelMain);
+        Interface i = new Interface();
+        I.setContentPane(i.panelMain);
         I.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         I.pack();
         I.setVisible(true);
 
-        mastermind m = new mastermind();
+
+        ArrayList<Integer> solution = new ArrayList<>();
+        solution.add(0);
+        solution.add(0);
+        solution.add(0);
+        solution.add(0);
+
+        mastermind m = new mastermind(solution);
+        i.setGamestate(m);
+
     }
 }

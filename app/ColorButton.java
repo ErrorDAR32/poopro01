@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ColorButton extends JButton {
-    private int currentColor;
+    private int ColorNumber;
 
-    public int getCurrentColor() {
-        return currentColor;
+    public Integer getColorNumber() {
+        return ColorNumber;
     }
 
     public Color getColor() {
-        switch (currentColor) {
+        switch (ColorNumber) {
             case (0) -> {
                 return Color.GREEN;
             }
@@ -27,16 +27,19 @@ public class ColorButton extends JButton {
             case (4) -> {
                 return Color.decode("#FF00FF");
             }
+            case (6) -> {
+                return Color.GRAY;
+            }
         }
         return Color.lightGray;
     }
 
-    public void setCurrentColor(int currentColor) {
-        this.currentColor = currentColor;
+    public void setColorNumber(int currentColor) {
+        this.ColorNumber = currentColor;
     }
 
     public void nextColor() {
-        currentColor = (currentColor + 1)%5;
+        ColorNumber = (ColorNumber + 1)%5;
     }
 
     public void initialize() {
@@ -53,7 +56,9 @@ public class ColorButton extends JButton {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.fillOval(3, -2, 29, 29);
-        g.setColor(getColor());
+        g.setColor(this.getColor());
         g.fillOval(5, 0, 25, 25);
     }
+
+
 }

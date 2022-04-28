@@ -7,6 +7,14 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class Interface {
+    public mastermind getGamestate() {
+        return gamestate;
+    }
+
+    public void setGamestate(mastermind gamestate) {
+        this.gamestate = gamestate;
+    }
+
     private mastermind gamestate;
     private JTextField textField1;
     public JPanel panelMain;
@@ -19,6 +27,9 @@ public class Interface {
     private ColorButton control_button2;
     private ColorButton control_button3;
     private ColorButton control_button4;
+
+    ArrayList<HistoryLabel> HistoryColorPoints;
+    ArrayList<ColorButton> Control_Buttons;
 
     public Interface(){
         control_button1.addMouseListener(new MouseAdapter() {
@@ -63,8 +74,24 @@ public class Interface {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                ArrayList<Integer> guess = new ArrayList<>();
 
-                gamestate.CheckColors(list);
+                guess.add(control_button1.getColorNumber());
+                guess.add(control_button2.getColorNumber());
+                guess.add(control_button3.getColorNumber());
+                guess.add(control_button4.getColorNumber());
+
+                //System.out.println(guess.toString());
+                gamestate.addGuess(guess);
+                System.out.println(gamestate.getHistoryPoints());
+                ArrayList<Integer> hints = gamestate.CheckColors();
+
+                for(int i=0;i<4;i++) {
+                    HistoryLabel b = HistoryColorPoints.get(gamestate.getCurrentRow()+i);
+                    b.setColorNumber(guess.get(i));
+                    b.updateUI();
+                }
+
             }
         });
     }
@@ -76,14 +103,15 @@ public class Interface {
         HistoryPanel = new JPanel(l);
         HistoryPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
+        HistoryColorPoints = new ArrayList<>();
 
         for(int i=0; i<10; i++) {
             for (int j=0; j<4; j++) {
                 HistoryLabel b = new HistoryLabel();
-                b.initialize();
                 b.setEnabled(false);
 
                 HistoryPanel.add(b);
+                HistoryColorPoints.add(b);
             }
         }
 

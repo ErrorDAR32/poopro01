@@ -1,22 +1,44 @@
 package app;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class mastermind {
     Integer CurrentRow;
-    ArrayList<PointRow> Rows;
+    ArrayList<Integer> HistoryPoints;
     ArrayList<Integer> Solution;
 
     /** constructs a game state with default conditions **/
     public mastermind(ArrayList<Integer> solution) {
         this.CurrentRow = 0;
-        this.Rows = new ArrayList<>();
+        this.HistoryPoints = new ArrayList<>();
         this.Solution = solution;
 
-        for (int i=0; i<10; i++) {
-            Rows.add(new PointRow());
+        for (int i=0; i<40; i++) {
+            HistoryPoints.add(6);
         }
     }
+
+    public ArrayList<Integer> getHistoryPoints() {
+        return HistoryPoints;
+    }
+
+    public void setHistoryPoints(ArrayList<Integer> historyPoints) {
+        HistoryPoints = historyPoints;
+    }
+
+    public Integer getCurrentRow() {
+        if (CurrentRow >= 40) {
+            return 36;
+        }
+        return CurrentRow-4;
+    }
+
+    public void setCurrentRow(Integer currentRow) {
+        CurrentRow = currentRow;
+    }
+
+
     /** checks colors on current row
      * output array of integers encode:
      * 0= no hint
@@ -25,15 +47,30 @@ public class mastermind {
     public ArrayList<Integer> CheckColors() {
         ArrayList<Integer> result = new ArrayList<>();
 
-        PointRow currentRow = this.Rows.get(this.CurrentRow);
-
         for(int i=0; i<4; i++) {
-            if (currentRow.getGuess().get(i).getColor() == this.Solution.get(i)) {
+            int point = CurrentRow-4+i;
+
+            if (Objects.equals(HistoryPoints.get(point), this.Solution.get(i))) {
                 result.add(2);
-            } else if (this.Solution.contains(currentRow.getGuess().get(i).getColor())) {
+            } else if (this.Solution.contains(HistoryPoints.get(point))) {
                 result.add(1);
             } else result.add(0);
         }
         return result;
+    }
+
+    public void addGuess(ArrayList<Integer> guess) {
+        for (int i=0; i<4; i++) {
+            HistoryPoints.set(CurrentRow+i, guess.get(i));
+        }
+        CurrentRow += 4;
+    }
+
+    public ArrayList<Integer> getSolution() {
+        return Solution;
+    }
+
+    public void setSolution(ArrayList<Integer> solution) {
+        Solution = solution;
     }
 }
