@@ -116,31 +116,31 @@ public class Interface {
                         count++;
                     }
 
-                    Integer result = 0;
+                }
 
-                    System.out.println(count);
+                Integer result = 2;
 
-                    if (count == 4) {
-                        WinGame dialog = new WinGame();
-                        dialog.pack();
-                        dialog.setVisible(true);
-                        result = dialog.getresult();
-                        dialog.dispose();
+                System.out.println(count);
+
+                if (count == 4) {
+                    WinGame dialog = new WinGame();
+                    dialog.pack();
+                    dialog.setVisible(true);
+                    result = dialog.getresult();
+                    dialog.dispose();
+                }
+                if (result == 0) {
+                    System.exit(0);
+                }
+                if (result == 1) {
+                    gamestate.reset();
+
+                    for(int i=0; i<40; i++) {
+                        HintLabels.get(i).setColorNumber(6);
+                        HintLabels.get(i).updateUI();
+                        HistoryLabels.get(i).setColorNumber(6);
+                        HistoryLabels.get(i).updateUI();
                     }
-                    if (result == 0) {
-                        System.exit(0);
-                    }
-                    if (result == 1) {
-                        gamestate.reset();
-
-                        for(int i=0; i<40; i++) {
-                            HintLabels.get(i).setColorNumber(6);
-                            HintLabels.get(i).updateUI();
-                            HistoryLabels.get(i).setColorNumber(6);
-                            HistoryLabels.get(i).updateUI();
-                        }
-                    }
-
                 }
 
 
@@ -149,7 +149,7 @@ public class Interface {
                     EndOFGame dialog = new EndOFGame();
                     dialog.pack();
                     dialog.setVisible(true);
-                    Integer result = dialog.getresult();
+                    result = dialog.getresult();
                     dialog.dispose();
 
                     if (result == 1) {
