@@ -7,7 +7,9 @@ package app;
  * Necesary imports
  */
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * This class represents the variables and methods necesaries for the program function.
@@ -61,10 +63,7 @@ public class mastermind {
      * @return Integer
      */
     public Integer getCurrentRow() {
-        if (CurrentRow >= 40) {
-            return 36;
-        }
-        return CurrentRow-4;
+        return CurrentRow;
     }
 
     /**
@@ -99,6 +98,15 @@ public class mastermind {
                 result.add(1);
             } else result.add(0);
         }
+
+        Random r1 = new Random();
+
+        for (int i = result.size() - 1; i >= 1; i--) {
+            // swapping current index value
+            // with random index value
+            Collections.swap(result, i, r1.nextInt(i + 1));
+        }
+
         return result;
     }
 

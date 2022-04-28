@@ -1,11 +1,5 @@
-/**
- * Container Package
- */
 package app;
 
-/**
- * Necesary imports
- */
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,6 +9,8 @@ import java.awt.*;
  * @version: 27/04/2022
  */
 public class HintLabel extends JButton {
+    private int color;
+
     /**
      * Create the label with the dimensions necesaries.
      * @param
@@ -36,9 +32,28 @@ public class HintLabel extends JButton {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.YELLOW);
+        g.setColor(getColor(color));
         g.fillOval(0, 0, 20, 20);
         //g.setColor(Color.BLUE);
         //g.fillRect(0,0,20,20);
+    }
+
+    public void setColorNumber(int color) {
+        this.color = color;
+    }
+
+    public Color getColor(int c) {
+        switch (c) {
+            case (0) -> {
+                return Color.GRAY;
+            }
+            case (1) -> {
+                return Color.RED;
+            }
+            case (2) -> {
+                return Color.WHITE;
+            }
+        }
+        return Color.lightGray;
     }
 }

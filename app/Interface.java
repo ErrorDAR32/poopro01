@@ -16,9 +16,7 @@ public class Interface {
     }
 
     private mastermind gamestate;
-    private JTextField textField1;
     public JPanel panelMain;
-    private JButton button1_row3;
     private JPanel HistoryPanel;
     private JPanel ControlPanel;
     private JPanel HintsPanel;
@@ -28,8 +26,9 @@ public class Interface {
     private ColorButton control_button3;
     private ColorButton control_button4;
 
-    ArrayList<HistoryLabel> HistoryColorPoints;
+    ArrayList<HistoryLabel> HistoryLabels;
     ArrayList<ColorButton> Control_Buttons;
+    ArrayList<HintLabel> HintLabels;
 
     public Interface(){
         control_button1.addMouseListener(new MouseAdapter() {
@@ -82,16 +81,39 @@ public class Interface {
                 guess.add(control_button4.getColorNumber());
 
                 //System.out.println(guess.toString());
-                gamestate.addGuess(guess);
-                System.out.println(gamestate.getHistoryPoints());
-                ArrayList<Integer> hints = gamestate.CheckColors();
+                if (gamestate.CurrentRow == 40) {
+                    //game ended, prompt
 
+                    return;
+                }
+
+                gamestate.addGuess(guess);
+                ArrayList<Integer> hints = gamestate.CheckColors();
+                System.out.println(hints);
+
+                Boolean allwhite = true;
+                for(int hint : hints) {
+                    if(hint != 2) {
+                        allwhite = false;
+                        break;
+                    }
+
+                    // prompt winning condition
+                }
+
+                //update historycolorpoints
                 for(int i=0;i<4;i++) {
-                    HistoryLabel b = HistoryColorPoints.get(gamestate.getCurrentRow()+i);
+                    HistoryLabel b = HistoryLabels.get(gamestate.getCurrentRow()+i-4);
                     b.setColorNumber(guess.get(i));
                     b.updateUI();
                 }
 
+                //updatehintscolorpoints
+                for(int i=0;i<4;i++) {
+                    HintLabel b = HintLabels.get(gamestate.getCurrentRow()+i-4);
+                    b.setColorNumber(hints.get(i));
+                    b.updateUI();
+                }
             }
         });
     }
@@ -103,7 +125,7 @@ public class Interface {
         HistoryPanel = new JPanel(l);
         HistoryPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
-        HistoryColorPoints = new ArrayList<>();
+        HistoryLabels = new ArrayList<>();
 
         for(int i=0; i<10; i++) {
             for (int j=0; j<4; j++) {
@@ -111,11 +133,12 @@ public class Interface {
                 b.setEnabled(false);
 
                 HistoryPanel.add(b);
-                HistoryColorPoints.add(b);
+                HistoryLabels.add(b);
             }
         }
 
         HintsPanel = new JPanel(new GridLayout(20,2));
+        HintLabels = new ArrayList<>();
 
         for(int i=0; i<10; i++) {
             for (int j=0; j<4; j++) {
@@ -124,6 +147,7 @@ public class Interface {
                 b.setEnabled(true);
 
                 HintsPanel.add(b);
+                HintLabels.add(b);
             }
         }
 

@@ -17,9 +17,9 @@ public class app {
 
         ArrayList<Integer> solution = new ArrayList<>();
         solution.add(0);
-        solution.add(0);
-        solution.add(0);
-        solution.add(0);
+        solution.add(1);
+        solution.add(2);
+        solution.add(3);
 
         mastermind m = new mastermind(solution);
         i.setGamestate(m);

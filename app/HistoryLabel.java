@@ -34,12 +34,12 @@ public class HistoryLabel extends JLabel {
      * @param
      * @return int
      */
-    public int getColor() {
+    public int getColorNumber() {
         return color;
     }
 
     /**
-     * Method for set the color to the label.
+     * Set the color to the label.
      * @param g(Graphics necesaries to the label)
      * @return void
      */
