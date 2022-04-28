@@ -1,5 +1,11 @@
+/**
+ * Container Package
+ */
 package app;
 
+/**
+ * Necesary imports
+ */
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,6 +15,9 @@ import java.awt.*;
  * @version: 27/04/2022
  */
 public class HintLabel extends JButton {
+    /**
+     * Declarations
+     */
     private int color;
 
     /**
@@ -38,10 +47,20 @@ public class HintLabel extends JButton {
         //g.fillRect(0,0,20,20);
     }
 
+    /**
+     * Method for set the number of color to the label
+     * @param
+     * @return int
+     */
     public void setColorNumber(int color) {
         this.color = color;
     }
 
+    /**
+     * Method for get the color of the label
+     * @param c(number of the color of label)
+     * @return Color
+     */
     public Color getColor(int c) {
         switch (c) {
             case (0) -> {

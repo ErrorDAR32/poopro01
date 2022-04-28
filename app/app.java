@@ -1,10 +1,26 @@
-
+/**
+ * Container Package
+ */
 package app;
+
+/**
+ * Necesary imports
+ */
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * This class represents the start of the program.
+ * @author: Dariem F. Hidalgo, Pablo A. Arguedas.
+ * @version: 27/04/2022
+ */
 public class app {
 
+    /**
+     * Method main to start the program on this point.
+     * @param
+     * @return void
+     */
     public static void main(String[] args)
     {
         JFrame I = new JFrame("Interface");
@@ -23,6 +39,5 @@ public class app {
 
         mastermind m = new mastermind(solution);
         i.setGamestate(m);
-
     }
 }

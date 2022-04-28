@@ -15,6 +15,9 @@ import java.awt.*;
  * @version: 27/04/2022
  */
 public class HistoryLabel extends JLabel {
+    /**
+     * Declarations
+     */
     private int color;
 
     /**
