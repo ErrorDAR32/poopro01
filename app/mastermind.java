@@ -106,15 +106,35 @@ public class mastermind {
     public ArrayList<Integer> CheckColors() {
         ArrayList<Integer> result = new ArrayList<>();
 
+        ArrayList<Integer> sol = new ArrayList<>(this.Solution);
+
         for(int i=0; i<4; i++) {
             int point = CurrentRow-4+i;
 
-            if (Objects.equals(HistoryPoints.get(point), this.Solution.get(i))) {
+            if (Objects.equals(HistoryPoints.get(point), sol.get(i))) {
                 result.add(2);
-            } else if (this.Solution.contains(HistoryPoints.get(point))) {
-                result.add(1);
-            } else result.add(0);
+                sol.set(i, 6);
+            } else {
+                boolean found = false;
+                for (int j=0; j<4; j++)  {
+                    if (Objects.equals(HistoryPoints.get(point), sol.get(j))) {
+                        found = true;
+                        sol.set(j, 6);
+                        result.add(1);
+                        break;
+                    }
+                }
+                if (found) {
+                    continue;
+                }
+                result.add(0);
+            }
+
+            System.out.println(sol);
+            System.out.println(result);
+
         }
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         Random r1 = new Random();
 

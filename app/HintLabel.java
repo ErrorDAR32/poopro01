@@ -73,6 +73,6 @@ public class HintLabel extends JButton {
                 return Color.RED;
             }
         }
-        return Color.lightGray;
+        return Color.GRAY;
     }
 }

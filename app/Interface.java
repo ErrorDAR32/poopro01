@@ -92,9 +92,6 @@ public class Interface {
                 guess.add(control_button3.getColorNumber());
                 guess.add(control_button4.getColorNumber());
 
-                //System.out.println(guess.toString());
-
-
                 gamestate.addGuess(guess);
                 ArrayList<Integer> hints = gamestate.CheckColors();
 
@@ -112,9 +109,15 @@ public class Interface {
                     b.updateUI();
                 }
 
+                System.out.println(hints);
 
+                boolean alltwo = true;
                 for(int hint : hints) {
                     if(hint != 2) {
+                        alltwo = false;
+                    } else continue;
+
+                    if (!alltwo) {
                         break;
                     }
 
