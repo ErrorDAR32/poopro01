@@ -162,7 +162,11 @@ public class mastermind {
         Solution = solution;
     }
 
-
+    /**
+     * Method for reset the game
+     * @param
+     * @return void
+     */
     public void reset() {
         this.CurrentRow = 0;
 
